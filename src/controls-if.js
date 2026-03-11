@@ -1,7 +1,7 @@
 // ----------------------------
 // conditional structures :
-//   - ternary exepression
-//   - if
+//   - ternary expression
+//   - if ... else
 //   - switch .. case
 // ----------------------------
 

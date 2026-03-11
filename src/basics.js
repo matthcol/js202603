@@ -133,3 +133,47 @@ console.log(city2.substring(0, 3)) // Tou (index s letter = 0)
 console.log(city2.substring(3, 6)) // Lou
 console.log(city2.substring(6))    // se
 
+console.log(city2.slice(3, 6)) // idem .substring
+console.log(city2.slice(-5))   // negative index => from the end (5 last ones)
+console.log(city2.slice(-5, -2))
+
+// mathematical functions and constants
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+const discount = 12.33
+const tva = 20
+const qty = 12
+const priceTot = (price * qty) * (1 + tva / 100) * (1 - discount / 100)
+const priceTotR1 = Math.ceil(priceTot)
+const priceTotR2 = Math.floor(priceTot)
+const priceTotR3 = Math.round(priceTot)
+const priceTotR4 = Math.trunc(priceTot)
+console.log("Raw result:", priceTot)
+console.log("Ceil:", priceTotR1)
+console.log("Floor:", priceTotR2)
+console.log("Round:", priceTotR3)
+console.log("Trunc:", priceTotR4)
+
+// see also: min, max, cos, sin, log10, log2, PI, E, ....
+
+console.log('Min: ', Math.min(priceTotR1, priceTotR2))
+console.log('Min: ', Math.min(priceTotR1, priceTotR2, priceTotR3, priceTotR4))
+
+// ----------------------------
+// Number : conversions
+// ----------------------------
+
+const quantityInput = '125'
+const quantity = Number.parseInt(quantityInput)
+console.log(quantity, typeof quantity)
+// TODO: computing ...
+
+// Display numbers
+console.log('Quantity (text):', quantity.toString())
+console.log('Quantity (text, radix 16):', quantity.toString(16))
+console.log('Quantity (text, radix 2):', quantity.toString(2))
+console.log('Prix (FR) : ', priceTot.toLocaleString('fr-FR'))
+
+// NB: strings use Unicode characters
+// https://fr.wikipedia.org/wiki/Unicode
+const cityJp = '東京'
+console.log(cityJp)

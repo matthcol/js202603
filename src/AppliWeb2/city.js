@@ -9,7 +9,7 @@ function displayPage(cityPage){
     const content = cityPage
         .map(city => `<li>${city}</li>`)
         .join('\n')
-    console.log(content)
+    // console.log(content)
     cityListElement.innerHTML = content
 }
 
@@ -25,10 +25,24 @@ const btnPageNext = document.getElementById("btn-page-next")
 console.log(btnPagePrev)
 console.log(btnPageNext)
 
+const updateInfoPage = () => {
+    // display :
+    // - page size
+    // - total nb of cities
+    // - current num page 
+    // - total nb of page
+    console.log(pageSize, cities.length, pageNum + 1, pageCount)
+    document.getElementById("info-page-size").innerText = pageSize
+    document.getElementById("info-page-total").innerText = cities.length
+    document.getElementById("info-page-num").innerText = pageNum + 1
+    document.getElementById("info-page-count").innerText = pageCount
+}
+
 const updatePage = () => {
     cityPage = loadPage(pageNum, pageSize)
-    console.log(cityPage)
+    // console.log(cityPage)
     displayPage(cityPage)
+    updateInfoPage()
     // if (pageNum == 0) {
     //     btnPagePrev.disabled = true
     // } else {

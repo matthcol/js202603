@@ -15,26 +15,41 @@ function displayPage(cityPage){
 
 let pageNum = 0
 const pageSize = 20
+const pageCount = Math.ceil(cities.length / pageSize)
+let cityPage = []
 
-let cityPage = loadPage(pageNum, pageSize)
-console.log(cityPage)
-
-displayPage(cityPage)
-
-
-// page controls :
+// page prev/next controls :
 const btnPagePrev = document.getElementById("btn-page-prev")
 const btnPageNext = document.getElementById("btn-page-next")
 
 console.log(btnPagePrev)
 console.log(btnPageNext)
 
-btnPagePrev.addEventListener('click', () => console.log('Prev'))
-btnPageNext.addEventListener('click', () => {
-    pageNum++
-    console.log('Next Page:', pageNum)
+const updatePage = () => {
     cityPage = loadPage(pageNum, pageSize)
     console.log(cityPage)
     displayPage(cityPage)
+    // if (pageNum == 0) {
+    //     btnPagePrev.disabled = true
+    // } else {
+    //     btnPagePrev.disabled = false
+    // }
+    btnPagePrev.disabled = (pageNum == 0)
+    btnPageNext.disabled = (pageNum == pageCount -1)
+}
+
+btnPagePrev.addEventListener('click', () =>  {
+    pageNum--
+    console.log('Previous Page:', pageNum)
+    updatePage()
 })
+
+btnPageNext.addEventListener('click', () => {
+    pageNum++
+    console.log('Next Page:', pageNum)
+    updatePage()
+})
+
+// load 1st page
+updatePage()
 

@@ -38,3 +38,30 @@ function normalizeCityLimit(cityName, limit=5){
 console.log(normalizeCityLimit('Toulouse'))
 console.log(normalizeCityLimit('Pau', 10))
 console.log(normalizeCityLimit('Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson', 10))
+
+// apply normalizeCityLimit to all cities with default limit
+const citiesNorm5 = cities.map(normalizeCityLimit)  // !! limit = index
+console.log(citiesNorm5)
+
+const citiesNorm5b = cities.map(city => normalizeCityLimit(city))
+console.log(citiesNorm5b)
+
+// apply normalizeCityLimit to all cities with limit=10
+const citiesNorm10 = cities.map(city => normalizeCityLimit(city, 10))
+console.log(citiesNorm10)
+
+console.log()
+cities.forEach(city => console.log(city))
+
+console.log()
+cities.forEach((city, i) => console.log(` . ${i+1} - ${city}`))
+
+console.log()
+cities.slice(0,3).forEach((city, i, arr) => console.log(` . ${i+1}/${arr.length} - ${city}`))
+
+const normalizeCityLimit10 = city => normalizeCityLimit(city, 10)
+
+console.log(normalizeCityLimit10('Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson'))
+
+const citiesNorm10b = cities.map(normalizeCityLimit10)
+console.log(citiesNorm10b)

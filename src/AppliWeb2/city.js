@@ -19,9 +19,22 @@ const pageSize = 20
 let cityPage = loadPage(pageNum, pageSize)
 console.log(cityPage)
 
-pageNum = 55
-cityPage = loadPage(pageNum, pageSize)
-console.log(cityPage)
-
 displayPage(cityPage)
+
+
+// page controls :
+const btnPagePrev = document.getElementById("btn-page-prev")
+const btnPageNext = document.getElementById("btn-page-next")
+
+console.log(btnPagePrev)
+console.log(btnPageNext)
+
+btnPagePrev.addEventListener('click', () => console.log('Prev'))
+btnPageNext.addEventListener('click', () => {
+    pageNum++
+    console.log('Next Page:', pageNum)
+    cityPage = loadPage(pageNum, pageSize)
+    console.log(cityPage)
+    displayPage(cityPage)
+})
 

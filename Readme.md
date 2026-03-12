@@ -22,3 +22,9 @@ node
 ```
 node src/basics.js
 ```
+
+### Run A Web Site
+```
+cd src/AppliWeb1
+npx live-server
+```

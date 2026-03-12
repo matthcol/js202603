@@ -110,5 +110,29 @@ console.log()
 cities.forEach(({name, dep_code}, index) => console.log(` -${index+1}- ${name} (${dep_code})`))
 
 // 2 - extraire les villes de + de 100 000 habitants (Hint: filter)
+const bigCities = cities.filter(city => city.population > 100000)
+console.log(bigCities)
+
+const bigCities2 = cities.filter(({population}) => population > 100000)
+console.log(bigCities2)
 
 // 3 - extraire les noms de villes dans un nouveau tableau (Hint: map)
+const names = cities.map(city => city.name)
+console.log(names)
+
+const names2 = cities.map(({name}) => name)
+console.log(names2)
+
+const bigCityNames = cities.filter(city => city.population >= 100000)
+    .map(city => city.name)
+console.log(bigCityNames)
+
+const extract1 = cities.filter(city => city.population >= 100000)
+    .map((city, index) => [index + 1, city.name])
+console.log(extract1)
+
+console.log()
+cities.filter(city => city.population >= 100000)
+    .map((city, index) => [index + 1, city.name])
+    // .forEach(index_name => console.log(` -${index_name[0]}- ${index_name[1]}`))
+    .forEach(([index, name]) => console.log(` -${index}- ${name}`))

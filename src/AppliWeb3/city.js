@@ -63,11 +63,11 @@ function isCodeDept(query){
 }
 
 function searchCityByCP(query){
-    cityFiltered = cities.filter(city => city.code_postal == query.toUpperCase())
+    cityFiltered = cities.filter(city => city.code_postal == query)
 }
 
 function searchCityByDept(query){
-    cityFiltered = cities.filter(city => city.dep_code == query)
+    cityFiltered = cities.filter(city => city.dep_code == query.toUpperCase())
 }
 
 function searchCityByName(query){

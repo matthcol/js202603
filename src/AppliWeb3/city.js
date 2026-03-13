@@ -1,7 +1,17 @@
 import cities from './city_fr.json' with { type: 'json' }
 
+let cityFiltered = cities
+let pageNum = 0
+const pageSize = 20
+const pageCount = Math.ceil(cityFiltered.length / pageSize)
+let cityPage = []
+
+// page prev/next controls :
+const btnPagePrev = document.getElementById("btn-page-prev")
+const btnPageNext = document.getElementById("btn-page-next")
+
 function loadPage(pageNum, pageSize){
-    return cities.slice(pageNum * pageSize, (pageNum + 1) * pageSize)
+    return cityFiltered.slice(pageNum * pageSize, (pageNum + 1) * pageSize)
 }
 
 function cityCard(city) {
@@ -23,18 +33,6 @@ function displayPage(cityPage){
     // console.log(content)
     cityListElement.innerHTML = content
 }
-
-let pageNum = 0
-const pageSize = 20
-const pageCount = Math.ceil(cities.length / pageSize)
-let cityPage = []
-
-// page prev/next controls :
-const btnPagePrev = document.getElementById("btn-page-prev")
-const btnPageNext = document.getElementById("btn-page-next")
-
-console.log(btnPagePrev)
-console.log(btnPageNext)
 
 const updateInfoPage = () => {
     // display :

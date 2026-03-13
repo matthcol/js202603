@@ -4,11 +4,21 @@ function loadPage(pageNum, pageSize){
     return cities.slice(pageNum * pageSize, (pageNum + 1) * pageSize)
 }
 
+function cityCard(city) {
+    return `<div class="city-card">
+        <div class="city-name">${city.nom}</div>
+        <div class="city-meta>
+            <span class="city-dept">${city.dep_code} - ${city.dep_nom}</span>
+            CP ${city.code_postal} . ${city.population} hab.
+        </div>
+    </div>`
+}
+
 function displayPage(cityPage){
     const cityListElement = document.getElementById('city-list')
     const content = cityPage
         // .map(city => `<li>${city.nom}</li>`)
-        .map(city => `<li>${JSON.stringify(city)}</li>`)
+        .map(cityCard)
         .join('\n')
     // console.log(content)
     cityListElement.innerHTML = content

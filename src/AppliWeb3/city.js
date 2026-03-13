@@ -9,9 +9,17 @@ let cityPage = []
 // page prev/next controls :
 const btnPagePrev = document.getElementById("btn-page-prev")
 const btnPageNext = document.getElementById("btn-page-next")
+const btnSortDept = document.getElementById("btn-sort-dept")
+const btnSortPopDesc = document.getElementById("btn-sort-pop-desc")
+const btnSortPopAsc = document.getElementById("btn-sort-pop-asc")
+
 
 function loadPage(pageNum, pageSize){
     return cityFiltered.slice(pageNum * pageSize, (pageNum + 1) * pageSize)
+}
+
+function sortByPopulationDesc(){
+    cityFiltered.sort((city1, city2) => city2.population - city1.population)
 }
 
 function cityCard(city) {
@@ -61,6 +69,8 @@ const updatePage = () => {
     btnPageNext.disabled = (pageNum == pageCount -1)
 }
 
+// Event listeners on each button
+
 btnPagePrev.addEventListener('click', () =>  {
     pageNum--
     console.log('Previous Page:', pageNum)
@@ -70,6 +80,15 @@ btnPagePrev.addEventListener('click', () =>  {
 btnPageNext.addEventListener('click', () => {
     pageNum++
     console.log('Next Page:', pageNum)
+    updatePage()
+})
+
+btnSortPopDesc.addEventListener('click', () => {
+    // sort
+    sortByPopulationDesc()
+    // back to page 0
+    pageNum = 0
+    // refresh
     updatePage()
 })
 

@@ -51,7 +51,7 @@ h1 {
   border-color: var(--accent);
 }
 
-#search {
+#input-search {
   flex: 1;
   background: transparent;
   border: none;

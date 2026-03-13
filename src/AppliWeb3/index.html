@@ -9,6 +9,14 @@
     <h1>Communes françaises</h1>
 
     <div>
+        <div class="search-wrap">
+        <input
+          type="text"
+          id="input-search"
+          placeholder="Rechercher une ville…"
+          autocomplete="off"
+        />
+      </div>
         <div id="info-page">
             <div>
                 Villes :
@@ -22,6 +30,7 @@
             </div>
         </div>
          <div>Tri
+            <button id="btn-sort-name">Nom</button>
             <button id="btn-sort-dept">Département</button>
             <button id="btn-sort-pop-desc">Population Desc</button>
             <button id="btn-sort-pop-asc">Population Asc</button>
